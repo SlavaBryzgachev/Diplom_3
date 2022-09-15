@@ -1,10 +1,10 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.junit4.DisplayName;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.yandex.praktikum.User.GenerateUser;
 import ru.yandex.praktikum.pom.HomePage;
 import ru.yandex.praktikum.User.User;
 import static com.codeborne.selenide.Selenide.open;
@@ -15,7 +15,7 @@ public class UserRegisterTest {
     private HomePage homePage;
     @Before
     public void setUp() {
-        user = GenerateUser.getRandomUser();
+        user = User.getRandomUser();
         homePage = open(HomePage.URL, HomePage.class);
     }
     @After
