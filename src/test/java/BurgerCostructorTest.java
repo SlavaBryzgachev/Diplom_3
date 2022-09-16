@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 import ru.yandex.praktikum.pom.HomePage;
 
+import static com.codeborne.selenide.Selenide.getFocusedElement;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertTrue;
 
@@ -17,8 +18,9 @@ public class BurgerCostructorTest {
     @Test
     @DisplayName("Переход к разделу Булки")
     public void navigateToBunIngredient() {
-        boolean isDisplayed = homePage.findBunIngredient();
-        assertTrue(isDisplayed);
+         boolean isDisplayed = homePage.findBunIngredient();
+         assertTrue(isDisplayed);
+
     }
     @Test
     @DisplayName("Переход к разделу Соусы")

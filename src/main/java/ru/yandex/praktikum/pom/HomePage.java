@@ -31,19 +31,19 @@ public class HomePage {
         SelenideElement bun = menuIngredients.get(0).lastChild();
         bun.scrollIntoView(true);
         bun.click();
-        return bun.isDisplayed();
+        return bun.isEnabled();
     }
     public boolean findSauceIngredient() {
         SelenideElement sauce = menuIngredients.get(1).lastChild();
         sauce.scrollIntoView(true);
         sauce.click();
-        return sauce.isDisplayed();
+        return sauce.isEnabled();
     }
 
     public boolean findFillingIngredient() {
         SelenideElement filling = menuIngredients.get(2).lastChild();
         filling.scrollIntoView(true);
         filling.click();
-        return filling.isDisplayed();
+        return filling.isEnabled();
     }
 }

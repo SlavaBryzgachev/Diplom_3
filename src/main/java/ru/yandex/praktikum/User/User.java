@@ -41,5 +41,14 @@ public class User extends Config {
                 .then()
                 .log().all();
     }
+    public ValidatableResponse loginUser(User user) {
+        return given()
+                .spec(getBaseSpec())
+                .body(user)
+                .log().all()
+                .post("/api/auth/login")
+                .then()
+                .log().all();
+    }
 }
 
