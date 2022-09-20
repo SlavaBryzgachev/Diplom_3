@@ -45,9 +45,9 @@ public class UserRegisterTest {
                 .clickRegisterLink()
                 .fillRegisterForm(user.getName(), user.getEmail(), "888")
                 .clickRegisterButton(Condition.visible);
-
-        assertTrue(isDisplayed);
-        if(isDisplayed == false){
+        if(isDisplayed){
+            }
+            else{
             response = user.loginUser(user);
             accessToken = response.extract().path("accessToken");
             user.deleteUser(StringUtils.substringAfter(accessToken, " "));
@@ -61,8 +61,9 @@ public class UserRegisterTest {
                 .fillRegisterForm(user.getName(), user.getEmail(), "888")
                 .isDisplayedPasswordError();
 
-        assertTrue(isDisplayed);
-        if(isDisplayed == false){
+        if(isDisplayed) {
+        }
+        else {
             response = user.loginUser(user);
             accessToken = response.extract().path("accessToken");
             user.deleteUser(StringUtils.substringAfter(accessToken, " "));

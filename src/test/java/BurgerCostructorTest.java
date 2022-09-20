@@ -1,10 +1,15 @@
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import ru.yandex.praktikum.pom.HomePage;
 
+import java.util.Objects;
+
 import static com.codeborne.selenide.Selenide.getFocusedElement;
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class BurgerCostructorTest {
@@ -18,20 +23,24 @@ public class BurgerCostructorTest {
     @Test
     @DisplayName("Переход к разделу Булки")
     public void navigateToBunIngredient() {
-         boolean isDisplayed = homePage.findBunIngredient();
-         assertTrue(isDisplayed);
-
+        String isSelected = homePage.findBunIngredient();
+        String expected = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
+        Assert.assertEquals(expected,isSelected);
     }
     @Test
     @DisplayName("Переход к разделу Соусы")
     public void navigateToSauceIngredient() {
-        boolean isDisplayed = homePage.findSauceIngredient();
-        assertTrue(isDisplayed);
+        homePage.clickSauseIngredient();
+        String isSelected = homePage.findSauceIngredient();
+        String expected = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
+        Assert.assertEquals(expected, isSelected);
     }
     @Test
     @DisplayName("Переход к разделу Начинки")
     public void navigateToFillingIngredient() {
-        boolean isDisplayed = homePage.findFillingIngredient();
-        assertTrue(isDisplayed);
+        homePage.clickFillingIngredient();
+        String isSelected = homePage.findFillingIngredient();
+        String expected = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
+        Assert.assertEquals(expected, isSelected);
     }
 }
